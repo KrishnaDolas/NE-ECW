@@ -1,0 +1,19 @@
+// src/components/SaleStrip.jsx
+import React from "react";
+
+export function SaleStrip() {
+  const text = "On Sale ! 20% ! Hurry Up !";
+
+  return (
+    <div className="border-b border-emerald-100 bg-emerald-600/95 text-emerald-50">
+      <div className="relative mx-auto flex max-w-6xl overflow-hidden px-4 py-1.5 text-[11px] sm:text-xs font-semibold">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="mx-6">{text}</span>
+          <span className="mx-6">{text}</span>
+          <span className="mx-6">{text}</span>
+          <span className="mx-6">{text}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
