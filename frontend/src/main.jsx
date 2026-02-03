@@ -7,7 +7,7 @@ import { StoreProvider } from "./context/StoreContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/NE-ECW">
       <StoreProvider>
         <App />
       </StoreProvider>

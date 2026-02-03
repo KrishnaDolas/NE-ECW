@@ -1,7 +1,7 @@
 // src/components/CartItem.jsx
 import React from "react";
 import { useStore } from "../context/StoreContext";
-import { IconButton, TextField } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 export function CartItem({ item }) {
@@ -23,31 +23,36 @@ export function CartItem({ item }) {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-slate-200 py-3">
+    <div className="flex items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-white/90 px-3 py-3 shadow-sm">
       <div className="flex flex-1 flex-col">
-        <p className="text-sm font-medium text-slate-900">
+        <p className="text-sm font-semibold text-slate-900">
           {item.name}
         </p>
-        <p className="text-xs text-slate-500">
+        <p className="text-[11px] text-slate-500">
           Unit price: ₹{item.price}
         </p>
       </div>
+
       <div className="flex items-center gap-3">
-        <TextField
-          type="number"
-          size="small"
-          value={item.qty}
-          onChange={handleQtyChange}
-          inputProps={{ min: 0, className: "text-sm" }}
-          className="w-20"
-        />
-        <p className="w-20 text-right text-sm font-medium text-slate-900">
+        <div className="flex items-center rounded-full border border-emerald-100 bg-emerald-50/60 px-2 py-1">
+          <input
+            type="number"
+            min={0}
+            value={item.qty}
+            onChange={handleQtyChange}
+            className="w-14 border-none bg-transparent text-center text-xs text-slate-900 outline-none"
+          />
+        </div>
+
+        <p className="w-20 text-right text-sm font-semibold text-emerald-800">
           ₹{item.price * item.qty}
         </p>
+
         <IconButton
           size="small"
           color="error"
           onClick={handleRemove}
+          aria-label="Remove item"
         >
           <Delete fontSize="small" />
         </IconButton>

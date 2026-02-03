@@ -5,7 +5,7 @@ export default function Contact() {
   const [btnText, setBtnText] = useState("Submit request");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault(); // stop browser redirect
 
     setIsSubmitting(true);
@@ -16,15 +16,15 @@ export default function Contact() {
     // Send manually to FormSubmit with your email
     fetch("https://formsubmit.co/kdolas99@gmail.com", {
       method: "POST",
-      body: new FormData(form),
+      body: new FormData(form)
     })
-      .then((res) => {
+      .then(res => {
         console.log("FormSubmit response status:", res.status);
         setBtnText(
           "Done! Your form has been submitted. We'll reach you shortly."
         );
       })
-      .catch((err) => {
+      .catch(err => {
         console.error("FormSubmit error:", err);
         setBtnText("Error! Try Again");
       })
@@ -34,94 +34,101 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Background glow */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 -left-24 h-80 w-80 bg-sky-500/35 blur-3xl rounded-full" />
-        <div className="absolute top-40 right-[-6rem] h-80 w-80 bg-indigo-500/30 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-64 w-[32rem] bg-emerald-400/18 blur-3xl rounded-full" />
-      </div>
-
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 pb-20">
+    <div className="min-h-screen bg-amber-50 text-slate-900">
+      <div className="mx-auto max-w-6xl px-4 py-10 pb-20 sm:px-6 lg:px-8">
         {/* Intro */}
-        <section className="pt-2 md:pt-4 max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/10 px-3 py-1 text-[11px] font-medium text-sky-100 mb-3">
-            Contact MechParts Hub
+        <section className="max-w-3xl pt-2 md:pt-4">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-medium text-emerald-800">
+            Contact FreshFoods Hub
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-3">
-            Share your{" "}
-            <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400 bg-clip-text text-transparent">
-              mechanical requirements
+          <h1 className="mb-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Let&apos;s plan your{" "}
+            <span className="bg-gradient-to-r from-emerald-500 via-lime-500 to-amber-400 bg-clip-text text-transparent">
+              kitchen supply
             </span>
             .
           </h1>
+          <p className="text-sm text-slate-600 sm:text-base">
+            Share a few details about your food business and the ingredients you
+            need. Our team will help you with pricing, delivery schedules and
+            product recommendations.
+          </p>
         </section>
 
         {/* Main contact layout */}
-        <section className="mt-10 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
+        <section className="mt-8 grid items-start gap-8 lg:mt-10 lg:grid-cols-[1.3fr_1fr]">
           {/* Form */}
-          <div className="rounded-3xl border border-slate-800 bg-slate-950/85 p-5 sm:p-6 shadow-[0_20px_60px_rgba(15,23,42,0.9)]">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-3">
+          <div className="rounded-3xl border border-emerald-100 bg-white/95 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] sm:p-6">
+            <p className="mb-3 text-[11px] uppercase tracking-[0.18em] text-emerald-700">
               Share your details
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 text-xs sm:text-sm"
+            >
               {/* FormSubmit hidden fields */}
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input
                 type="hidden"
                 name="_subject"
-                value="New Contact Form Submission from MechParts Hub"
+                value="New Contact Form Submission from FreshFoods Hub"
               />
 
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[11px] text-slate-300">Full name</label>
+                  <label className="text-[11px] text-slate-600">
+                    Full name
+                  </label>
                   <input
                     name="fullname"
                     type="text"
                     required
-                    className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                    className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
                     placeholder="Your name"
                     autoComplete="name"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[11px] text-slate-300">Company</label>
+                  <label className="text-[11px] text-slate-600">
+                    Restaurant / company
+                  </label>
                   <input
                     name="company"
                     type="text"
-                    className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
-                    placeholder="Organization name"
+                    className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+                    placeholder="Business name (optional)"
                     autoComplete="organization"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <div className="flex flex-col gap-1">
-                  <label className="text-[11px] text-slate-300">Work email</label>
+                  <label className="text-[11px] text-slate-600">
+                    Work email
+                  </label>
                   <input
                     name="email"
                     type="email"
                     required
-                    className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
-                    placeholder="you@company.com"
+                    className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+                    placeholder="you@restaurant.com"
                     autoComplete="email"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-[11px] text-slate-300">
-                    Phone (with country code)
+                  <label className="text-[11px] text-slate-600">
+                    Phone / WhatsApp
                   </label>
                   <input
                     name="phone"
                     type="tel"
                     required
-                    className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                    className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
                     placeholder="+91-XXXXXXXXXX"
                     autoComplete="tel"
                   />
@@ -129,34 +136,35 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[11px] text-slate-300">
+                <label className="text-[11px] text-slate-600">
                   What do you need help with?
                 </label>
                 <select
                   name="requirement"
                   required
-                  className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400"
+                  className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
                 >
                   <option value="">Select an option</option>
-                  <option>Bearings for motors/pumps</option>
-                  <option>V-belts & pulleys</option>
-                  <option>Couplings & power transmission</option>
-                  <option>Gearboxes & drives</option>
-                  <option>Spare parts for maintenance (MRO)</option>
-                  <option>Other mechanical components</option>
+                  <option>Daily fruits & vegetables</option>
+                  <option>Dry groceries & staples</option>
+                  <option>Dairy & frozen items</option>
+                  <option>Ready-to-cook / marinated items</option>
+                  <option>Office pantry & snacks</option>
+                  <option>Bulk order for event / catering</option>
+                  <option>Long-term supply contract</option>
                 </select>
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-[11px] text-slate-300">
+                <label className="text-[11px] text-slate-600">
                   Briefly describe your requirement
                 </label>
                 <textarea
                   name="message"
                   required
                   rows={4}
-                  className="rounded-lg bg-slate-900 border border-slate-700 px-2.5 py-2 text-xs sm:text-sm text-slate-100 outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 resize-none"
-                  placeholder="Describe your machines, quantities, brands and timelines..."
+                  className="resize-none rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
+                  placeholder="Share number of outlets, cuisines, approximate daily or weekly volume, and any preferred brands..."
                 />
               </div>
 
@@ -166,14 +174,14 @@ export default function Contact() {
                   id="consent"
                   type="checkbox"
                   required
-                  className="mt-0.5 h-3.5 w-3.5 rounded border-slate-700 bg-slate-900 text-sky-500"
+                  className="mt-0.5 h-3.5 w-3.5 rounded border-emerald-300 bg-white text-emerald-600"
                 />
                 <label
                   htmlFor="consent"
-                  className="text-[11px] text-slate-300 leading-snug"
+                  className="text-[11px] leading-snug text-slate-600"
                 >
-                  I agree to be contacted by MechParts Hub. My details will be used
-                  only for this enquiry.
+                  I agree to be contacted by FreshFoods Hub. My details will be used
+                  only for this enquiry and not shared with third parties.
                 </label>
               </div>
 
@@ -181,44 +189,45 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full inline-flex items-center justify-center rounded-full bg-sky-500 px-4 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 hover:bg-sky-400 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-4 py-2.5 text-xs font-semibold text-emerald-50 shadow-lg shadow-emerald-500/20 transition-colors hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-70 sm:text-sm"
               >
                 {btnText}
               </button>
 
-              <p className="text-[10px] text-slate-400">
-                Typical response time: 1–2 business days. Check your email (Inbox,
-                Spam, Promotions) for a confirmation.
+              <p className="text-[10px] text-slate-500">
+                Typical response time: within 1 business day. Please check your email
+                (Inbox, Spam, Promotions) for our reply and quotation details.
               </p>
             </form>
           </div>
 
-          {/* Side info card (you can adapt to your business) */}
+          {/* Side info card */}
           <div className="space-y-4 text-xs sm:text-sm">
-            <div className="rounded-3xl border border-slate-800 bg-slate-950/85 p-5">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400 mb-2">
+            <div className="rounded-3xl border border-emerald-100 bg-white/95 p-5">
+              <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-emerald-700">
                 Direct contact
               </p>
-              <div className="space-y-1.5 text-slate-100">
+              <div className="space-y-1.5 text-slate-800">
                 <p>
                   📧 Email:{" "}
                   <a
                     href="mailto:kdolas99@gmail.com"
-                    className="hover:text-blue-500 transition"
+                    className="font-medium text-emerald-700 hover:text-emerald-800"
                   >
                     kdolas99@gmail.com
                   </a>
                 </p>
                 <p>
-                  📱 Phone:{" "}
-                  <span className="text-slate-200">
-                    +91-98765-43210
+                  📱 Phone / WhatsApp:{" "}
+                  <span className="text-slate-800">
+                    +91-8421-50-1905
                   </span>
                 </p>
+                <p>📍 Pune, Maharashtra</p>
               </div>
-              <p className="mt-3 text-[11px] text-slate-400">
-                Prefer email or phone? Reach out directly—our team will respond
-                with next steps.
+              <p className="mt-3 text-[11px] text-slate-500">
+                Prefer a quick call? Reach out directly and we&apos;ll walk you
+                through pricing, delivery routes and sample orders.
               </p>
             </div>
           </div>

@@ -5,37 +5,42 @@ import { Accordion } from "../components/ui/Accordion";
 export default function Services() {
   const items = [
     {
-      title: "Bearing failure analysis",
+      title: "Menu & category planning support",
       content:
-        "We help diagnose premature bearing failures using photos, operating data and lubrication history, and recommend corrective actions."
+        "Share your cuisines, outlets and expected covers, and we’ll help you plan ingredient categories, pack sizes and reorder frequencies that fit your kitchen workflow."
     },
     {
-      title: "Drive sizing and selection",
+      title: "Demand & stock optimisation",
       content:
-        "Share load, speed and duty cycle details and we will size belts, pulleys and couplings for optimal life and efficiency."
+        "We work with your team to understand peak days, seasonal demand and storage capacity, then suggest ordering patterns that reduce wastage while avoiding stock-outs."
     },
     {
-      title: "Spares standardisation",
+      title: "Alternatives & substitutions",
       content:
-        "We map existing spares across machines and suggest standardisation opportunities to reduce inventory complexity."
+        "If a specific brand or item is unavailable, we recommend practical alternatives and substitutions that keep your recipes consistent with minimal changes."
     }
   ];
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-8">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
-        Services
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+        Solutions
       </p>
-      <h1 className="mt-1 text-lg font-semibold text-slate-900">
-        Application support for mechanical drives and rotating equipment.
+      <h1 className="mt-1 text-lg font-semibold text-slate-900 sm:text-xl">
+        Support for busy kitchens and food businesses.
       </h1>
+
       <div className="mt-3 grid gap-8 lg:grid-cols-[1.4fr,1fr]">
         <div className="space-y-4 text-sm text-slate-700">
           <p>
-            Beyond supplying components, we help your team specify the right bearings, belts and couplings for each application. This reduces unplanned downtime and extends equipment life.
+            FreshFoods Hub goes beyond simply supplying ingredients. We work like an
+            extended part of your purchasing and operations team, helping you plan
+            categories, manage stock and adjust to changing demand.
           </p>
           <p>
-            For critical machines, we can work with your maintenance team to map operating conditions and create stocking plans that keep essential spares available without overstocking.
+            Whether you&apos;re running a single outlet or multiple locations, we focus
+            on making your sourcing more predictable — so your chefs spend less time
+            chasing ingredients and more time serving guests.
           </p>
         </div>
         <div>

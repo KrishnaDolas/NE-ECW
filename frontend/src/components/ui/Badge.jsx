@@ -5,7 +5,7 @@ export function Badge({ children, className = "" }) {
   return (
     <span
       className={
-        "inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 " +
+        "inline-flex items-center rounded-full border border-emerald-100 bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-800 " +
         className
       }
     >

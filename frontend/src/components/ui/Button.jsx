@@ -7,7 +7,7 @@ export function Button({ className = "", children, ...props }) {
     <MUIButton
       {...props}
       className={
-        "normal-case rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 shadow-sm " +
+        "normal-case rounded-full bg-emerald-600 px-4 py-2 text-xs sm:text-sm font-semibold text-emerald-50 hover:bg-emerald-700 shadow-sm " +
         className
       }
       disableElevation

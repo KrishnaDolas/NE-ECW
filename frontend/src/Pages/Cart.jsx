@@ -21,10 +21,7 @@ export default function Cart() {
   });
   const [orderPlacedId, setOrderPlacedId] = useState(null);
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -34,10 +31,12 @@ export default function Cart() {
   const handlePlaceOrder = e => {
     e.preventDefault();
     if (!cart.length) return;
+
     dispatch({
       type: "PLACE_ORDER",
       payload: { customer }
     });
+
     const id = `ORD-${Date.now()}`;
     setOrderPlacedId(id);
     setCustomer({
@@ -51,35 +50,44 @@ export default function Cart() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-8">
-      <h1 className="text-lg font-semibold text-slate-900">
-        Cart & order details
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+        Your basket
+      </p>
+      <h1 className="mt-1 text-lg font-semibold text-slate-900 sm:text-xl">
+        Review items & share delivery details.
       </h1>
       <p className="mt-1 text-xs text-slate-600">
-        Review your selected mechanical components and share your contact details. You will receive a formal quotation and order confirmation by email.
+        Check your selected food products and tell us where to deliver. You&apos;ll
+        receive a confirmation with final bill and delivery slot over email or WhatsApp.
       </p>
+
       <div className="mt-6 grid gap-8 lg:grid-cols-[1.6fr,1fr]">
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        {/* Cart items */}
+        <div className="rounded-2xl border border-emerald-100 bg-white/95 p-4 shadow-sm">
           <h2 className="text-sm font-semibold text-slate-900">
-            Items in cart
+            Items in your basket
           </h2>
           {cart.length === 0 ? (
             <p className="mt-3 text-sm text-slate-600">
-              Your cart is empty. Browse the products catalogue and add items to proceed with ordering.
+              Your basket is empty. Browse the catalogue and add fruits, vegetables and
+              pantry items to place an order.
             </p>
           ) : (
-            <div className="mt-3">
+            <div className="mt-3 space-y-3">
               {cart.map(item => (
                 <CartItem key={item.id} item={item} />
               ))}
             </div>
           )}
         </div>
+
+        {/* Customer details */}
         <form
           onSubmit={handlePlaceOrder}
-          className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+          className="rounded-2xl border border-emerald-100 bg-white/95 p-4 shadow-sm"
         >
           <h2 className="text-sm font-semibold text-slate-900">
-            Contact & shipping details
+            Contact & delivery info
           </h2>
           <div className="mt-3 space-y-3">
             <Input
@@ -93,7 +101,7 @@ export default function Cart() {
               name="company"
               value={customer.company}
               onChange={handleChange}
-              placeholder="Company (optional)"
+              placeholder="Restaurant / company (optional)"
             />
             <Input
               required
@@ -101,45 +109,49 @@ export default function Cart() {
               name="email"
               value={customer.email}
               onChange={handleChange}
-              placeholder="Work email"
+              placeholder="Email for order updates"
             />
             <Input
               required
               name="phone"
               value={customer.phone}
               onChange={handleChange}
-              placeholder="Mobile / phone"
+              placeholder="Mobile / WhatsApp number"
             />
             <textarea
               name="notes"
               value={customer.notes}
               onChange={handleChange}
               rows={3}
-              className="block w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              placeholder="Share machine details, required brands, delivery timelines or any other notes…"
+              className="block w-full rounded-lg border border-emerald-100 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              placeholder="Add delivery address, preferred slot, special handling (e.g. no contact delivery, extra ice packs)…"
             />
           </div>
-          <div className="mt-4 border-t border-slate-200 pt-4">
+
+          <div className="mt-4 border-t border-emerald-100 pt-4">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium text-slate-700">
-                Order value (approx.)
+                Estimated order value
               </span>
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-emerald-700">
                 ₹{total}
               </span>
             </div>
             <p className="mt-1 text-[11px] text-slate-500">
-              Prices are indicative. Final taxes, shipping and discounts will be confirmed in the quotation.
+              Final bill may vary slightly based on exact weight of fresh items, taxes
+              and delivery charges. We&apos;ll confirm before dispatch.
             </p>
           </div>
+
           <Button
             type="submit"
             fullWidth
             disabled={!cart.length}
-            className="mt-4 w-full bg-blue-600 text-xs hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+            className="mt-4 w-full bg-emerald-600 text-xs font-semibold text-emerald-50 hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
           >
-            Place order / request quote
+            Place order request
           </Button>
+
           {orderPlacedId && (
             <div className="mt-3 flex items-start gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-[11px] text-emerald-800">
               <CheckCircleIcon
@@ -151,7 +163,8 @@ export default function Cart() {
                   Order request submitted.
                 </p>
                 <p>
-                  Our team will reach out to you with a quotation and delivery details shortly.
+                  Our team will confirm availability, pricing and delivery slot with you
+                  shortly on your shared contact details.
                 </p>
               </div>
             </div>

@@ -20,8 +20,7 @@ export default function Products() {
         search.trim().length === 0 ||
         p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.category.toLowerCase().includes(search.toLowerCase());
-      const matchCategory =
-        category === "all" || p.category === category;
+      const matchCategory = category === "all" || p.category === category;
       return matchSearch && matchCategory;
     });
   }, [search, category]);
@@ -30,16 +29,18 @@ export default function Products() {
     <section className="mx-auto max-w-6xl px-4 py-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
             Catalogue
           </p>
-          <h1 className="text-lg font-semibold text-slate-900">
-            Mechanical components
+          <h1 className="text-lg font-semibold text-slate-900 sm:text-xl">
+            Food & kitchen essentials
           </h1>
           <p className="mt-1 text-xs text-slate-600">
-            Bearings, power transmission and couplings for industrial drives.
+            Browse fresh produce, dry groceries, dairy, frozen items and ready-to-cook
+            products for your kitchen.
           </p>
         </div>
+
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Input
             type="text"
@@ -65,13 +66,14 @@ export default function Products() {
           </FormControl>
         </div>
       </div>
+
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
         {filtered.length === 0 && (
           <p className="text-sm text-slate-600">
-            No products match your search.
+            No products match your search. Try a different name or category.
           </p>
         )}
       </div>

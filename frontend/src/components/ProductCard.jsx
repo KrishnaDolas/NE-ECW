@@ -1,7 +1,7 @@
+// src/components/ProductCard.jsx
 import React from "react";
 import { Card } from "./ui/Card";
 import { Button } from "./ui/Button";
-import { Badge } from "./ui/Badge";
 import { useStore } from "../context/StoreContext";
 import { Rating } from "@mui/material";
 
@@ -22,43 +22,50 @@ export function ProductCard({ product }) {
   };
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden bg-slate-900/80 border-slate-800 hover:border-sky-500/70 transition-colors shadow-lg shadow-slate-950/40">
-      <div className="relative aspect-[4/3] w-full bg-slate-900">
+    <Card className="flex h-full flex-col overflow-hidden border border-emerald-100 bg-white/90 shadow-md shadow-emerald-100/60 hover:shadow-lg hover:border-emerald-200 transition-all">
+      {/* Image */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-emerald-50">
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
         />
         {product.inStock ? (
-          <span className="absolute left-2 top-2 rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-950">
+          <span className="absolute left-2 top-2 rounded-full bg-emerald-500/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-50">
             In stock
           </span>
         ) : (
-          <span className="absolute left-2 top-2 rounded-full bg-amber-500/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-950">
-            Lead time
+          <span className="absolute left-2 top-2 rounded-full bg-amber-500/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-950">
+            Pre-order
           </span>
         )}
       </div>
+
+      {/* Content */}
       <div className="flex flex-1 flex-col gap-2 p-4">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-400">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-600">
               {product.category}
             </p>
-            <h3 className="mt-1 text-sm font-semibold text-slate-50">
+            <h3 className="mt-1 text-sm font-semibold text-slate-900">
               {product.name}
             </h3>
           </div>
           <div className="text-right">
-            <p className="text-[11px] text-slate-400">{product.brand}</p>
-            <p className="text-sm font-semibold text-sky-300">
+            {product.brand && (
+              <p className="text-[11px] text-slate-400">{product.brand}</p>
+            )}
+            <p className="text-sm font-semibold text-emerald-700">
               ₹{product.price}
             </p>
           </div>
         </div>
-        <p className="line-clamp-2 text-[11px] text-slate-400">
+
+        <p className="line-clamp-2 text-[11px] text-slate-500">
           {product.shortDescription}
         </p>
+
         <div className="mt-1 flex items-center justify-between text-xs">
           <div className="flex items-center gap-1">
             <Rating
@@ -73,17 +80,18 @@ export function ProductCard({ product }) {
             </span>
           </div>
           {!product.inStock && (
-            <span className="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-slate-300">
-              Request quote
+            <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] text-amber-800 border border-amber-100">
+              Check availability
             </span>
           )}
         </div>
+
         <div className="mt-3">
           <Button
             fullWidth
             disabled={!product.inStock}
             onClick={handleAddToCart}
-            className="w-full bg-sky-500 text-xs font-semibold text-slate-950 hover:bg-sky-400 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400"
+            className="w-full bg-emerald-600 text-xs font-semibold text-emerald-50 hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
           >
             {product.inStock ? "Add to cart" : "Out of stock"}
           </Button>
