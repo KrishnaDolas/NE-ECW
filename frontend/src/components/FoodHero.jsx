@@ -64,7 +64,7 @@ export function FoodHero() {
           </div>
         ))}
         {/* Soft light overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/65 to-white/80 md:from-white/70 md:via-white/55 md:to-white/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/50 to-white/50 md:from-white/50 md:via-white/45 md:to-white/50" />
       </div>
 
       {/* Center content */}
