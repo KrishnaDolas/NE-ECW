@@ -2,123 +2,118 @@
 
 export const PRODUCTS = [
   {
-    id: "basmati-rice-25kg",
-    name: "Basmati Rice Sack (25 kg)",
-    category: "Grains & Staples",
-    price: 2450,
+    id: "verse-pindakaas-crunchy",
+    name: "Verse Pindakaas (Crunchy)",
+    category: "Nut Butter",
+    price: 399,
     currency: "INR",
-    brand: "Royal Harvest Pro",
+    brand: "Pure Nut",
     inStock: true,
-    rating: 4.8,
+    rating: 4.7,
     image:
-      "https://5.imimg.com/data5/SELLER/Default/2025/7/530058411/IW/LP/FY/26757244/whatsapp-image-2025-07-23-at-5-12-30-pm-500x500.jpeg", // rice with sack [web:232]
+      "https://images.pexels.com/photos/4110004/pexels-photo-4110004.jpeg?auto=compress&cs=tinysrgb&w=800", // jar of peanut butter + peanuts [web:284]
     shortDescription:
-      "Long‑grain basmati rice in a bulk sack for biryanis and large‑volume cooking.",
+      "Freshly roasted crunchy peanut butter with visible peanut pieces for extra bite.",
     specs: {
-      weight: "25 kg",
-      type: "Basmati rice",
-      origin: "India",
-      storage: "Store in a cool, dry place on a pallet"
+      weight: "350 g",
+      type: "Peanut butter (crunchy)",
+      storage: "Store in a cool, dry place. Stir well if oil separates."
     }
   },
+ {
+  id: "verse-pindakaas-smooth",
+  name: "Verse Pindakaas (Smooth)",
+  category: "Nut Butter",
+  price: 399,
+  currency: "INR",
+  brand: "Pure Nut",
+  inStock: true,
+  rating: 4.8,
+  image:
+    "https://images.pexels.com/photos/1352281/pexels-photo-1352281.jpeg?auto=compress&cs=tinysrgb&w=800", // spoon of peanut butter + nuts [web:284]
+  shortDescription:
+    "Silky smooth peanut butter made from freshly roasted peanuts.",
+  specs: {
+    weight: "350 g",
+    type: "Peanut butter (smooth)",
+    storage:
+      "Store in a cool, dry place. Refrigerate after opening for best freshness."
+  }
+},
   {
-    id: "sunflower-oil-15l",
-    name: "Sunflower Cooking Oil Can (15 L)",
-    category: "Oils & Fats",
-    price: 1890,
+    id: "hazelnut-butter-milk-chocolate",
+    name: "Hazelnut Butter (Milk Chocolate)",
+    category: "Nut Butter",
+    price: 449,
     currency: "INR",
-    brand: "SunLite HoReCa",
+    brand: "Pure Nut",
     inStock: true,
     rating: 4.6,
     image:
-      "https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e2a1d47befdcbc41b47beec13597b4e8bcc95e419c2a1d237507bf4b00ab7ff855a6a42031e35f8510062f77b61f22282", // cooking oil bottle [web:237]
+      "https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg?auto=compress&cs=tinysrgb&w=800", // peanut butter on toast + peanuts [web:284]
     shortDescription:
-      "Refined sunflower oil for deep‑frying and everyday commercial kitchen use.",
+      "Creamy peanut-based chocolate spread inspired by hazelnut butters.",
     specs: {
-      volume: "15 L",
-      type: "Sunflower oil",
-      packaging: "Can / large bottle",
-      storage: "Store in a cool, dark place away from direct sunlight"
+      weight: "300 g",
+      type: "Peanut & cocoa spread",
+      storage: "Store in a cool, dry place away from direct sunlight."
     }
   },
+ {
+  id: "hazelnut-butter-dark-chocolate",
+  name: "Hazelnut Butter (Dark Chocolate)",
+  category: "Nut Butter",
+  price: 469,
+  currency: "INR",
+  brand: "Pure Nut",
+  inStock: true,
+  rating: 4.7,
+  image:
+    "https://images.pexels.com/photos/3735152/pexels-photo-3735152.jpeg?auto=compress&cs=tinysrgb&w=800", // dark-ish peanut butter + peanuts [web:284]
+  shortDescription:
+    "Richer dark‑style chocolate peanut spread with deeper cocoa flavour.",
+  specs: {
+    weight: "300 g",
+    type: "Peanut & dark cocoa spread",
+    storage: "Store in a cool, dry place. Refrigerate after opening."
+  }
+},
   {
-    id: "frozen-mixed-veg-5kg",
-    name: "Frozen Mixed Vegetables Bag (5 kg)",
-    category: "Frozen",
-    price: 650,
+    id: "hazelnut-butter-100",
+    name: "Hazelnut Butter (100%)",
+    category: "Nut Butter",
+    price: 479,
     currency: "INR",
-    brand: "FrostFresh Pro",
-    inStock: true,
-    rating: 4.4,
-    image:
-      "https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ebae237a354dcff42159dc0481c4c1eea58f486f41c23f5b99111c2e306b58b26f1d633fdc955f03162c692a63aea8a69", // clear frozen veg pack/bag [web:238]
-    shortDescription:
-      "Frozen mixed vegetables for curries, fried rice, pulao and side dishes.",
-    specs: {
-      weight: "5 kg",
-      type: "Frozen mixed vegetables",
-      storage: "Keep frozen at -18°C or below",
-      usage: "Use directly from frozen, do not refreeze thawed product"
-    }
-  },
-  {
-    id: "paneer-5kg-block",
-    name: "Fresh Paneer Cubes (5 kg)",
-    category: "Dairy & Chilled",
-    price: 1425,
-    currency: "INR",
-    brand: "Chef’s Choice Pro",
+    brand: "Pure Nut",
     inStock: true,
     rating: 4.5,
     image:
-      "https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e82054613915f4b3259840127d6c70e39886f3c1f1f7571a637bf517b2f00089b85f67f84954facd125140173046ade0a", // paneer cubes [web:212]
+      "https://images.pexels.com/photos/3735151/pexels-photo-3735151.jpeg?auto=compress&cs=tinysrgb&w=800", // spoon + bowl of peanut butter [web:284]
     shortDescription:
-      "Soft fresh paneer cubes ideal for gravies, tikkas and starters in Indian menus.",
+      "100% roasted peanuts, no added sugar or oils. Pure, clean nut flavour.",
     specs: {
-      weight: "5 kg",
-      type: "Paneer (cottage cheese)",
-      storage: "Refrigerated at 2–4°C",
-      shelfLife: "Use within 3–4 days of opening"
+      weight: "300 g",
+      type: "Peanut butter (100%)",
+      storage: "Store in a cool, dry place. Natural oil separation is normal."
     }
   },
   {
-    id: "biryani-gravy-2kg",
-    name: "Biryani Gravy Base Tub (2 kg)",
-    category: "Ready-to-Cook",
+    id: "almond-butter-100",
+    name: "Almond Butter (100%)",
+    category: "Nut Butter",
     price: 499,
     currency: "INR",
-    brand: "Sunbay Pro Kitchen",
+    brand: "Pure Nut",
     inStock: true,
-    rating: 4.3,
+    rating: 4.6,
     image:
-      "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800", // biryani / gravy in pan [web:222]
+      "https://images.pexels.com/photos/1352281/pexels-photo-1352281.jpeg?auto=compress&cs=tinysrgb&w=800", // spoon with nut butter + nuts [web:286]
     shortDescription:
-      "Ready‑to‑use biryani style gravy base for consistent flavour in bulk cooking.",
+      "100% nuts butter in a creamy, spreadable texture, perfect for toasts and bowls.",
     specs: {
-      weight: "2 kg",
-      type: "Gravy base",
-      storage: "Refrigerate after opening",
-      shelfLife: "Refer to pack for best‑before date"
-    }
-  },
-  {
-    id: "mixed-spice-blend-1kg",
-    name: "Mixed Spice Blend Jar (1 kg)",
-    category: "Spices & Seasonings",
-    price: 189,
-    currency: "INR",
-    brand: "Chef’s Art",
-    inStock: true,
-    rating: 4.4,
-    image:
-      "https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7dccfa05-d458-5f84-8f2e-ba7d20685176/79cefe22-2e66-55cd-bd98-c0bbf1fa918e.jpg", // spice jars + powders [web:241]
-    shortDescription:
-      "All‑purpose mixed spice blend for marinades, curries and snack seasoning.",
-    specs: {
-      weight: "1 kg",
-      type: "Dry seasoning",
-      storage: "Store in a cool, dry place in an airtight container",
-      usage: "Use as a sprinkle or in marinades"
+      weight: "300 g",
+      type: "Nut butter (100%)",
+      storage: "Store in a cool, dry place. Stir well before use."
     }
   }
 ];

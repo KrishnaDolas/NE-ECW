@@ -6,26 +6,21 @@ export default function About() {
     <section className="mx-auto max-w-6xl px-4 py-10">
       {/* Eyebrow + heading */}
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
-        About FreshFoods Hub
+        Beyond Peanut Butter
       </p>
       <h1 className="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl">
-        Reliable fresh food supply for modern kitchens.
+        A Story of Purity and Passion.
       </h1>
 
       {/* Intro + image */}
       <div className="mt-6 grid gap-6 md:grid-cols-[1.2fr,1fr] md:items-center">
         <div className="text-sm leading-relaxed text-slate-700 space-y-3">
           <p>
-            FreshFoods Hub is a B2B food supplier focused on fresh produce, pantry
-            essentials and ready-to-cook products. We help restaurants, cloud kitchens,
-            cafes and offices keep their menus running without worrying about daily
-            sourcing.
+            The Pure Nut isn’t just about nut butter. It’s about a belief that real food still exists.
+Our founder — a mom and finance professional — spent years searching for something simple and honest to feed her family. After tasting freshly roasted peanut butter in Groningen, she realized Amsterdam needed this purity.
           </p>
           <p>
-            Our team curates ingredients with chefs and kitchen managers in mind — consistent
-            quality, easy storage and reliable delivery windows. Whether you&apos;re planning
-            a weekly menu or scaling a new outlet, we work to make your food operations
-            simpler and more predictable.
+            Today, The Pure Nut crafts premium nut butters from the finest ingredients sourced globally — peanuts from Argentina, Brazil, and the USA; hazelnuts from Georgia; almonds from California; and Barry Callebaut chocolate for indulgent variants.
           </p>
         </div>
 
@@ -41,6 +36,12 @@ export default function About() {
       {/* Stats / pillars */}
       <div className="mt-8 grid gap-4 text-xs text-slate-700 md:grid-cols-3">
         <div className="rounded-xl border border-emerald-100 bg-white p-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
+           Mission
+          </p>
+          <p className="mt-2">
+            To bring back simplicity and honesty to everyday food.
+          </p>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
             Who we serve
           </p>

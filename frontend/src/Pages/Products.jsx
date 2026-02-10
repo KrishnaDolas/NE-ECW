@@ -1,4 +1,3 @@
-// src/routes/Products.jsx
 import React, { useState, useMemo } from "react";
 import { PRODUCTS } from "../data/products";
 import { ProductCard } from "../components/ProductCard";
@@ -29,7 +28,7 @@ export default function Products() {
     <section className="mx-auto max-w-6xl px-4 py-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#BA5C1E]">
             Catalogue
           </p>
           <h1 className="text-lg font-semibold text-slate-900 sm:text-xl">
@@ -67,10 +66,12 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* 👇 4 products per row */}
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {filtered.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
+
         {filtered.length === 0 && (
           <p className="text-sm text-slate-600">
             No products match your search. Try a different name or category.
