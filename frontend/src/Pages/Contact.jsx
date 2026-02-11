@@ -6,15 +6,15 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = e => {
-    e.preventDefault(); // stop browser redirect
+    e.preventDefault();
 
     setIsSubmitting(true);
     setBtnText("Submitting...");
 
     const form = e.target;
 
-    // Send manually to FormSubmit with your email
-    fetch("https://formsubmit.co/kdolas99@gmail.com", {
+    // Send to FormSubmit with your email
+    fetch("https://formsubmit.co/rockw964@gmail.com", {
       method: "POST",
       body: new FormData(form)
     })
@@ -23,6 +23,7 @@ export default function Contact() {
         setBtnText(
           "Done! Your form has been submitted. We'll reach you shortly."
         );
+        form.reset();
       })
       .catch(err => {
         console.error("FormSubmit error:", err);
@@ -39,19 +40,20 @@ export default function Contact() {
         {/* Intro */}
         <section className="max-w-3xl pt-2 md:pt-4">
           <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-medium text-emerald-800">
-            Contact FreshFoods Hub
+            Contact Pure Nut
           </span>
           <h1 className="mb-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Let&apos;s plan your{" "}
-            <span className="bg-gradient-to-r from-emerald-500 via-lime-500 to-amber-400 bg-clip-text text-transparent">
-              kitchen supply
-            </span>
+            Let&apos;s talk{" "}
+            <span className="bg-gradient-to-r from-[#BE6428] via-[#D47A34] to-[#F5A75A] bg-clip-text text-transparent">
+  Peanut Butter
+</span>
+
             .
           </h1>
           <p className="text-sm text-slate-600 sm:text-base">
-            Share a few details about your food business and the ingredients you
-            need. Our team will help you with pricing, delivery schedules and
-            product recommendations.
+            Share a few details about yourself and what you&apos;re looking for.
+            We&apos;ll help you with product recommendations, pricing and
+            availability for Pure Nut butters.
           </p>
         </section>
 
@@ -73,7 +75,7 @@ export default function Contact() {
               <input
                 type="hidden"
                 name="_subject"
-                value="New Contact Form Submission from FreshFoods Hub"
+                value="New Contact Form Submission from Pure Nut"
               />
 
               <div className="grid gap-3 sm:grid-cols-2">
@@ -108,14 +110,14 @@ export default function Contact() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="flex flex-col gap-1">
                   <label className="text-[11px] text-slate-600">
-                    Work email
+                    Email
                   </label>
                   <input
                     name="email"
                     type="email"
                     required
                     className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
-                    placeholder="you@restaurant.com"
+                    placeholder="you@example.com"
                     autoComplete="email"
                   />
                 </div>
@@ -145,13 +147,12 @@ export default function Contact() {
                   className="rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
                 >
                   <option value="">Select an option</option>
-                  <option>Daily fruits & vegetables</option>
-                  <option>Dry groceries & staples</option>
-                  <option>Dairy & frozen items</option>
-                  <option>Ready-to-cook / marinated items</option>
-                  <option>Office pantry & snacks</option>
-                  <option>Bulk order for event / catering</option>
-                  <option>Long-term supply contract</option>
+                  <option>Peanut butter for home use</option>
+                  <option>Peanut butter for café / restaurant</option>
+                  <option>Bulk / HoReCa packs</option>
+                  <option>Gifting or custom label jars</option>
+                  <option>Distributorship / retail enquiry</option>
+                  <option>Something else</option>
                 </select>
               </div>
 
@@ -164,7 +165,7 @@ export default function Contact() {
                   required
                   rows={4}
                   className="resize-none rounded-lg border border-emerald-100 bg-emerald-50/40 px-2.5 py-2 text-xs text-slate-900 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 sm:text-sm"
-                  placeholder="Share number of outlets, cuisines, approximate daily or weekly volume, and any preferred brands..."
+                  placeholder="Tell us how you plan to use Pure Nut butters, approximate quantities and any specific flavours you’re interested in..."
                 />
               </div>
 
@@ -180,7 +181,7 @@ export default function Contact() {
                   htmlFor="consent"
                   className="text-[11px] leading-snug text-slate-600"
                 >
-                  I agree to be contacted by FreshFoods Hub. My details will be used
+                  I agree to be contacted by Pure Nut. My details will be used
                   only for this enquiry and not shared with third parties.
                 </label>
               </div>
@@ -195,8 +196,8 @@ export default function Contact() {
               </button>
 
               <p className="text-[10px] text-slate-500">
-                Typical response time: within 1 business day. Please check your email
-                (Inbox, Spam, Promotions) for our reply and quotation details.
+                Typical response time: within 1 business day. Please check your
+                email (Inbox, Spam, Promotions) for our reply.
               </p>
             </form>
           </div>
@@ -211,10 +212,10 @@ export default function Contact() {
                 <p>
                   📧 Email:{" "}
                   <a
-                    href="mailto:kdolas99@gmail.com"
+                    href="mailto:rockw964@gmail.com"
                     className="font-medium text-emerald-700 hover:text-emerald-800"
                   >
-                    kdolas99@gmail.com
+                    rockw964@gmail.com
                   </a>
                 </p>
                 <p>
@@ -227,7 +228,7 @@ export default function Contact() {
               </div>
               <p className="mt-3 text-[11px] text-slate-500">
                 Prefer a quick call? Reach out directly and we&apos;ll walk you
-                through pricing, delivery routes and sample orders.
+                through products, pricing and sample jars.
               </p>
             </div>
           </div>

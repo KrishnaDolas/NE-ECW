@@ -41,9 +41,15 @@ export function Header() {
             alt="Pure Nut Logo"
             className="h-13 w-12 rounded-lg object-contain"
           />
-          <span className="text-base font-semibold text-[#BA5C1E]">
-            Pure Nut
-          </span>
+        <div className="flex flex-col items-center leading-tight">
+  <span className="text-base font-semibold text-[#BA5C1E]">
+    Pure Nut
+  </span>
+  <span className="mt-0.5 text-[10px] font-semibold tracking-[0.18em] text-[#BA5C1E]">
+    Luxury in a Jar
+  </span>
+</div>
+
         </Link>
 
         {/* Right section */}
@@ -53,7 +59,7 @@ export function Header() {
           <nav className="hidden items-center gap-2 md:flex">
             <NavLink to="/" className={navClass}>Home</NavLink>
             <NavLink to="/products" className={navClass}>Products</NavLink>
-            <NavLink to="/services" className={navClass}>Solutions</NavLink>
+            {/* <NavLink to="/services" className={navClass}>Solutions</NavLink> */}
             <NavLink to="/about" className={navClass}>About</NavLink>
             <NavLink to="/contact" className={navClass}>Contact</NavLink>
           </nav>
@@ -104,7 +110,7 @@ export function Header() {
                   onClick={closeMobile}
                   className="rounded-lg px-3 py-2 text-slate-700 hover:bg-[#BA5C1E]/10"
                 >
-                  {["Home", "Products", "Solutions", "About", "Contact"][i]}
+                  {["Home", "Products", "About", "Contact"][i]}
                 </NavLink>
               )
             )}

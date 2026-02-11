@@ -1,3 +1,4 @@
+// src/Pages/Cart.jsx (or src/routes/Cart.jsx)
 import React, { useState } from "react";
 import { useStore } from "../context/StoreContext";
 import { CartItem } from "../components/CartItem";
@@ -11,6 +12,9 @@ const EMAILJS_SERVICE_ID = "service_nyx4ons";
 const TEMPLATE_CUSTOMER_ID = "template_lrlw5uo";
 const TEMPLATE_ADMIN_ID = "template_npmwdac";
 const EMAILJS_PUBLIC_KEY = "LCOhbuOkeobyNb5Uo";
+
+// ✅ Google Apps Script Web App URL (replace this with your real URL)
+const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
 
 export default function Cart() {
   const {
@@ -45,25 +49,32 @@ export default function Cart() {
 
     setStatus("sending");
 
-    // ✅ Build items HTML for email table
+    // ✅ HTML rows for EmailJS templates
     const itemsHtml = cart
       .map(
         item => `
-        <tr>
-          <td>${item.name}</td>
-          <td>${item.qty}</td>
-          <td>₹${item.price * item.qty}</td>
-        </tr>
-      `
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.qty}</td>
+            <td>₹${item.price * item.qty}</td>
+          </tr>
+        `
       )
       .join("");
+
+    // ✅ Plain text summary for Google Sheets
+    const itemsText = cart
+      .map(
+        item =>
+          `${item.name} | Qty: ${item.qty} | Subtotal: ₹${item.price * item.qty}`
+      )
+      .join(" ; ");
 
     const orderId = `ORD-${Date.now()}`;
     const now = new Date();
 
-    // ✅ IMPORTANT: `email` is REQUIRED (used in EmailJS To Email: {{email}})
     const baseParams = {
-      email: customer.email,
+      email: customer.email, // used by EmailJS "To Email: {{email}}"
       customer_name: customer.name,
       customer_email: customer.email,
       customer_phone: customer.phone,
@@ -72,11 +83,12 @@ export default function Cart() {
       order_id: orderId,
       total: total,
       year: now.getFullYear(),
-      items: itemsHtml
+      items: itemsHtml,   // for EmailJS table
+      items_text: itemsText // for Google Sheets row
     };
 
     try {
-      // 📧 1. Send order confirmation to CUSTOMER
+      // 📧 1) Send order confirmation to CUSTOMER
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         TEMPLATE_CUSTOMER_ID,
@@ -84,7 +96,7 @@ export default function Cart() {
         EMAILJS_PUBLIC_KEY
       );
 
-      // 📧 2. Send order details to ADMIN
+      // 📧 2) Send order details to ADMIN
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         TEMPLATE_ADMIN_ID,
@@ -95,7 +107,21 @@ export default function Cart() {
         EMAILJS_PUBLIC_KEY
       );
 
-      // 🛒 Update app state
+      // 📊 3) Log order to Google Sheets via Apps Script
+      try {
+        await fetch(SHEET_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(baseParams)
+        });
+      } catch (err) {
+        console.error("Sheets logging error:", err);
+      }
+
+      // 🛒 4) Update app state
       dispatch({
         type: "PLACE_ORDER",
         payload: { customer, orderId }
@@ -162,10 +188,34 @@ export default function Cart() {
           </h2>
 
           <div className="mt-3 space-y-3">
-            <Input required name="name" value={customer.name} onChange={handleChange} placeholder="Your name" />
-            <Input name="company" value={customer.company} onChange={handleChange} placeholder="Company (optional)" />
-            <Input required type="email" name="email" value={customer.email} onChange={handleChange} placeholder="Email" />
-            <Input required name="phone" value={customer.phone} onChange={handleChange} placeholder="Mobile / WhatsApp" />
+            <Input
+              required
+              name="name"
+              value={customer.name}
+              onChange={handleChange}
+              placeholder="Your name"
+            />
+            <Input
+              name="company"
+              value={customer.company}
+              onChange={handleChange}
+              placeholder="Company (optional)"
+            />
+            <Input
+              required
+              type="email"
+              name="email"
+              value={customer.email}
+              onChange={handleChange}
+              placeholder="Email"
+            />
+            <Input
+              required
+              name="phone"
+              value={customer.phone}
+              onChange={handleChange}
+              placeholder="Mobile / WhatsApp"
+            />
 
             <textarea
               name="notes"
