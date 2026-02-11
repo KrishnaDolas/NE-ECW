@@ -25,7 +25,7 @@ const slides = [
     id: 4,
     cta: "See breakfast ideas",
     image:
-      "https://images.pexels.com/photos/4938391/pexels-photo-4938391.jpeg?auto=compress&cs=tinysrgb&w=1600" // jar + bread + peanuts [web:278]
+      "https://www.nuflowerfoods.com/wp-content/uploads/2024/09/peanut-butter-crunchy.jpg" // jar + bread + peanuts [web:278]
   },
   {
     id: 5,
