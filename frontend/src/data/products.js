@@ -26,21 +26,21 @@ export const PRODUCTS = [
       {
         sku: "PB-375",
         weight: "375 g",
-        price: 399,
+        price: "4.50€",
         image: peanut375,
         inStock: true
       },
       {
         sku: "PB-700",
         weight: "700 g",
-        price: 699,
+        price: "8€",
         image: peanut700,
         inStock: true
       },
       {
         sku: "PB-1KG",
         weight: "1 Kg",
-        price: 999,
+        price: "10.50€",
         image: peanut1kg,
         inStock: true
       }
@@ -58,21 +58,21 @@ export const PRODUCTS = [
       {
         sku: "PBC-375",
         weight: "375 g",
-        price: 429,
+        price: "4.50€",
         image: peanutCrunchy375,
         inStock: true
       },
       {
         sku: "PBC-700",
         weight: "700 g",
-        price: 749,
+        price: "8€",
         image: peanutCrunchy700,
         inStock: true
       },
       {
         sku: "PBC-1KG",
         weight: "1 Kg",
-        price: 1099,
+        price: "10.50€",
         image: peanutCrunchy1kg,
         inStock: true
       }
@@ -90,7 +90,22 @@ export const PRODUCTS = [
       {
         sku: "HB-MC-375",
         weight: "375 g",
-        price: 449,
+        price: "10.50€",
+        image: hazelMilk375,
+        inStock: true
+      },
+      
+      {
+        sku: "HB-MC-700",
+        weight: "700 g",
+        price: "19.25€",
+        image: hazelMilk375,
+        inStock: true
+      },
+      {
+        sku: "HB-MC-1KG",
+        weight: "1 Kg",
+        price: "26.50€",
         image: hazelMilk375,
         inStock: true
       }
@@ -108,21 +123,21 @@ export const PRODUCTS = [
       {
         sku: "HB-DC-375",
         weight: "375 g",
-        price: 469,
+        price: "10.50€",
         image: hazelDark375,
         inStock: true
       },
       {
         sku: "HB-DC-700",
         weight: "700 g",
-        price: 799,
+        price: "19.25€",
         image: hazelDark700,
         inStock: true
       },
       {
         sku: "HB-DC-1KG",
         weight: "1 Kg",
-        price: 1099,
+        price: "26.50€",
         image: hazelDark1kg,
         inStock: true
       }
@@ -140,7 +155,21 @@ export const PRODUCTS = [
       {
         sku: "AB-375",
         weight: "375 g",
-        price: 499,
+        price: "7.75€",
+        image: almond375,
+        inStock: true
+      },
+       {
+        sku: "AB-700",
+        weight: "700 g",
+        price: "19.25€",
+        image: almond375,
+        inStock: true
+      },
+      {
+        sku: "AB1KG",
+        weight: "1 Kg",
+        price: "26.50€",
         image: almond375,
         inStock: true
       }
