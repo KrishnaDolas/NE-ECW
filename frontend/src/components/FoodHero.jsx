@@ -7,31 +7,31 @@ const slides = [
     id: 1,
     cta: "Explore nut butters",
     image:
-      "https://images.pexels.com/photos/3735152/pexels-photo-3735152.jpeg?auto=compress&cs=tinysrgb&w=1600" // spoon + jar + peanuts [web:278]
+      "https://images.pexels.com/photos/6659897/pexels-photo-6659897.jpeg"
   },
   {
     id: 2,
     cta: "View flavour variants",
     image:
-      "https://images.pexels.com/photos/3735151/pexels-photo-3735151.jpeg?auto=compress&cs=tinysrgb&w=1600" // top view jar + spoon [web:278]
+      "https://images.pexels.com/photos/23384624/pexels-photo-23384624.jpeg" // top view jar + spoon [web:278]
   },
   {
     id: 3,
     cta: "Shop Pure Nut online",
     image:
-      "https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg?auto=compress&cs=tinysrgb&w=1600" // toast with peanut butter [web:278]
+      "https://images.pexels.com/photos/6659693/pexels-photo-6659693.jpeg" // toast with peanut butter [web:278]
   },
   {
     id: 4,
     cta: "See breakfast ideas",
     image:
-      "https://www.nuflowerfoods.com/wp-content/uploads/2024/09/peanut-butter-crunchy.jpg" // jar + bread + peanuts [web:278]
+      "https://images.pexels.com/photos/9646388/pexels-photo-9646388.jpeg"
   },
   {
     id: 5,
     cta: "Try crunchy & smooth",
     image:
-      "https://images.pexels.com/photos/3735150/pexels-photo-3735150.jpeg?auto=compress&cs=tinysrgb&w=1600" // multiple toasts [web:278]
+      "https://images.pexels.com/photos/6659874/pexels-photo-6659874.jpeg" // multiple toasts [web:278]
   }
 ];
 

@@ -29,21 +29,21 @@ export default function Products() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#BA5C1E]">
-            Catalogue
+            Our Range
           </p>
           <h1 className="text-lg font-semibold text-slate-900 sm:text-xl">
-            Food & kitchen essentials
+            Premium Peanut Butter Collection
           </h1>
           <p className="mt-1 text-xs text-slate-600">
-            Browse fresh produce, dry groceries, dairy, frozen items and ready-to-cook
-            products for your kitchen.
+            Discover our range of freshly roasted peanut butters — smooth, crunchy,
+            chocolate-infused and 100% natural blends, crafted for taste and nutrition.
           </p>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Input
             type="text"
-            placeholder="Search by name or category..."
+            placeholder="Search peanut butter variants..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="sm:w-60"
@@ -58,7 +58,7 @@ export default function Products() {
             >
               {categories.map(cat => (
                 <MenuItem key={cat} value={cat}>
-                  {cat === "all" ? "All categories" : cat}
+                  {cat === "all" ? "All varieties" : cat}
                 </MenuItem>
               ))}
             </Select>
@@ -74,7 +74,7 @@ export default function Products() {
 
         {filtered.length === 0 && (
           <p className="text-sm text-slate-600">
-            No products match your search. Try a different name or category.
+            No peanut butter products found. Try searching by flavour or type.
           </p>
         )}
       </div>
